@@ -62,6 +62,8 @@ class React3 extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    this._canvas = props.canvas
+
     this.state = {
       canvasKey: 0,
     };
@@ -134,17 +136,7 @@ class React3 extends React.Component {
       canvasKey,
     } = this.state;
 
-    return (<canvas
-      ref={this._canvasRef}
-      key={canvasKey}
-      width={this.props.width}
-      height={this.props.height}
-      style={{
-        ...this.props.canvasStyle,
-        width: this.props.width,
-        height: this.props.height,
-      }}
-    />);
+    return null
   }
 }
 
