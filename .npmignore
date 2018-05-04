@@ -1,9 +1,0 @@
-/node_modules/
-/.idea/
-/.eslintrc
-/.eslintcache
-/.npmignore
-/docs
-/tests
-/wiki
-yarn.lock
