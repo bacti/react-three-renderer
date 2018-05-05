@@ -1,7 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin';
 import PropTypes from 'prop-types';
-import * as THREE from 'three';
+global.THREE = require('three')
 
 import React3Renderer from './React3Renderer';
 import propTypeInstanceOf from './utils/propTypeInstanceOf';
