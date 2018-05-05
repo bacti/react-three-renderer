@@ -142,7 +142,7 @@ class React3DInstance {
       this._rendererUpdatedCallback(this._renderer);
     }
 
-    const renderer = this._renderer;
+    global.renderer = this._renderer;
 
     if (parameters.hasOwnProperty('pixelRatio')) {
       renderer.setPixelRatio(parameters.pixelRatio);
