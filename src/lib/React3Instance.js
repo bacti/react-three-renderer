@@ -28,6 +28,7 @@ class React3DInstance {
       onManualRenderTriggerCreated,
       forceManualRender,
     } = props;
+    global.React3D = this
 
     this._parameters = { ...props };
 
