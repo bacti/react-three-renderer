@@ -22,9 +22,7 @@ class SceneDescriptor extends Object3DDescriptor {
         PropTypes.number,
         PropTypes.string,
       ]),
-      update(threeObject, newColor) {
-        threeObject.color.set(newColor);
-      },
+      simple: true,
       default: undefined,
     });
   }
