@@ -16,10 +16,22 @@ class SceneDescriptor extends Object3DDescriptor {
       simple: true,
       default: undefined,
     });
+    this.hasProp('background', {
+      type: PropTypes.oneOfType([
+        propTypeInstanceOf(THREE.Color),
+        PropTypes.number,
+        PropTypes.string,
+      ]),
+      update(threeObject, newColor) {
+        threeObject.color.set(newColor);
+      },
+      default: undefined,
+    });
   }
 
   applyInitialProps(threeObject: THREE.Scene, props) {
     super.applyInitialProps(threeObject, props);
+    threeObject.background = new THREE.Color( props.background );
   }
 
   construct() {
