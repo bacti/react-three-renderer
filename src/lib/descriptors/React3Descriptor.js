@@ -144,6 +144,10 @@ const propProxy = {
     type: PropTypes.func,
     default: undefined,
   },
+  canvas: {
+    type: PropTypes.object,
+    default: undefined,
+  },
 };
 
 class React3Descriptor extends THREEElementDescriptor {
