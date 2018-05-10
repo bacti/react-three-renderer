@@ -22,6 +22,7 @@ class React3DInstance {
   constructor(props, rendererInstance: React3Renderer) {
     const {
       mainCamera,
+      orthoCamera,
       onAnimate,
       onRecreateCanvas,
       onRendererUpdated,
@@ -39,6 +40,7 @@ class React3DInstance {
     this._scene = null;
 
     this._mainCameraName = mainCamera;
+    this._orthoCameraName = orthoCamera;
     this._viewports = [];
     /**
      * @type {Array.<React3Module>}
@@ -321,7 +323,6 @@ class React3DInstance {
     }
 
     let mainCamera = null;
-
     if (this._mainCameraName) {
       const objectsWithMainCameraName = this._objectsByName[this._mainCameraName];
 
@@ -338,6 +339,23 @@ class React3DInstance {
       }
     }
 
+    let orthoCamera = null;
+    if (this._orthoCameraName) {
+      const objectsWithOrthoCameraName = this._objectsByName[this._orthoCameraName];
+
+      if (objectsWithOrthoCameraName) {
+        if (process.env.NODE_ENV !== 'production') {
+          warning(objectsWithOrthoCameraName.count < 2,
+            `There are multiple objects with name ${this._orthoCameraName}`);
+        }
+
+        if (objectsWithOrthoCameraName.count > 0) {
+          const values = objectsWithOrthoCameraName.values;
+          orthoCamera = values[Object.keys(values)[0]];
+        }
+      }
+    }
+
     if (mainCamera) {
       if (this._lastRenderMode !== 'camera') {
         this._renderer.autoClear = !true;
@@ -346,7 +364,7 @@ class React3DInstance {
       }
       CameraUtils.current = mainCamera;
       this.userData.events.emit('preRender');
-      this._renderScene(mainCamera);
+      this._renderScene(mainCamera, orthoCamera);
       CameraUtils.current = null;
     } else if (this._viewports.length > 0) {
       if (this._lastRenderMode !== 'viewport') {
@@ -391,7 +409,7 @@ class React3DInstance {
     }
   };
 
-  _renderScene(camera) {
+  _renderScene(camera, orthoCamera) {
     this._renderer.render(this._scene, camera);
     renderer.render( orthoscene, orthocamera ); // bacti
 
