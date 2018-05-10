@@ -102,6 +102,7 @@ class ElementDescriptorContainer {
 
       viewport: new ViewportDescriptor(react3RendererInstance),
       scene: new SceneDescriptor(react3RendererInstance),
+      orthoscene: new SceneDescriptor(react3RendererInstance),
 
       object3D: new Object3DDescriptor(react3RendererInstance),
       group: new GroupDescriptor(react3RendererInstance),

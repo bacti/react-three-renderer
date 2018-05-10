@@ -340,7 +340,7 @@ class React3DInstance {
 
     if (mainCamera) {
       if (this._lastRenderMode !== 'camera') {
-        this._renderer.autoClear = true;
+        this._renderer.autoClear = !true;
         this._renderer.setViewport(0, 0, this._parameters.width, this._parameters.height);
         this._lastRenderMode = 'camera';
       }
@@ -393,6 +393,7 @@ class React3DInstance {
 
   _renderScene(camera) {
     this._renderer.render(this._scene, camera);
+    renderer.render( orthoscene, orthocamera ); // bacti
 
     if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_REACT_ADDON_HOOKS === 'true') {
       if (this._highlightObjectId !== null) {
@@ -724,6 +725,12 @@ class React3DInstance {
     this._parameters.mainCamera = mainCamera;
 
     this._mainCameraName = mainCamera;
+  }
+
+  updateOrthoCamera(orthoCamera) {
+    this._parameters.orthoCamera = orthoCamera;
+
+    this._orthoCameraName = orthoCamera;
   }
 
   updateCustomRenderer(customRenderer) {

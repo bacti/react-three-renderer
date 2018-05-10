@@ -32,6 +32,10 @@ const propProxy = {
     type: PropTypes.string,
     default: undefined,
   },
+  orthoCamera: {
+    type: PropTypes.string,
+    default: undefined,
+  },
   onAnimate: {
     type: PropTypes.func,
     default: undefined,
