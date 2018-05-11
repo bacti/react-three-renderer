@@ -38,6 +38,7 @@ class React3DInstance {
     this._mounted = false;
     this._willUnmount = false;
     this._scene = null;
+    this._orthoScene = null;
 
     this._mainCameraName = mainCamera;
     this._orthoCameraName = orthoCamera;
@@ -271,7 +272,7 @@ class React3DInstance {
       const child = children[i];
 
       if (child instanceof THREE.Scene) {
-        this.setScene(child);
+        ;(child.type == 'OrthoScene') ? this.setOrthoScene(child) : this.setScene(child);
       } else if (child instanceof Viewport) {
         this.addViewport(child);
       } else if (child instanceof React3Module) {
@@ -290,6 +291,10 @@ class React3DInstance {
     if (child instanceof THREE.Scene) {
       if (this._scene === child) {
         this.setScene(null);
+      }
+      else
+      if (this._orthoScene === child) {
+        this.setOrthoScene(null);
       }
     } else if (child instanceof Viewport) {
       this.removeViewport(child);
@@ -458,6 +463,14 @@ class React3DInstance {
     }
 
     this._scene = scene;
+  }
+
+  setOrthoScene(scene) {
+    if (process.env.NODE_ENV !== 'production') {
+      invariant(!(this._orthoScene && scene), 'There can only be one ortho scene in <react3/>');
+    }
+
+    this._orthoScene = scene;
   }
 
   addViewport(viewport) {
@@ -897,6 +910,7 @@ class React3DInstance {
     delete this._objectsByUUID;
     delete this._viewports;
     delete this._scene;
+    delete this._orthoScene;
 
     if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_REACT_ADDON_HOOKS === 'true') {
       delete this._highlightScene;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Object3DDescriptor from './Object3DDescriptor';
 import propTypeInstanceOf from '../../utils/propTypeInstanceOf';
 
-class SceneDescriptor extends Object3DDescriptor {
+class OrthoSceneDescriptor extends Object3DDescriptor {
   constructor(react3Instance) {
     super(react3Instance);
 
@@ -33,8 +33,10 @@ class SceneDescriptor extends Object3DDescriptor {
   }
 
   construct() {
-    return new THREE.Scene();
+    let scene = new THREE.Scene();
+    scene.type = 'OrthoScene'
+    return scene
   }
 }
 
-module.exports = SceneDescriptor;
+module.exports = OrthoSceneDescriptor;

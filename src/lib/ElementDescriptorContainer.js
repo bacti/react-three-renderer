@@ -4,6 +4,7 @@ import ModuleDescriptor from './descriptors/ModuleDescriptor';
 
 import ViewportDescriptor from './descriptors/ViewportDescriptor';
 import SceneDescriptor from './descriptors/Object/SceneDescriptor';
+import OrthoSceneDescriptor from './descriptors/Object/OrthoSceneDescriptor';
 
 import Object3DDescriptor from './descriptors/Object/Object3DDescriptor';
 import GroupDescriptor from './descriptors/Object/GroupDescriptor';
@@ -102,7 +103,7 @@ class ElementDescriptorContainer {
 
       viewport: new ViewportDescriptor(react3RendererInstance),
       scene: new SceneDescriptor(react3RendererInstance),
-      orthoscene: new SceneDescriptor(react3RendererInstance),
+      orthoscene: new OrthoSceneDescriptor(react3RendererInstance),
 
       object3D: new Object3DDescriptor(react3RendererInstance),
       group: new GroupDescriptor(react3RendererInstance),
