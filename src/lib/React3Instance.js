@@ -363,7 +363,7 @@ class React3DInstance {
 
     if (mainCamera) {
       if (this._lastRenderMode !== 'camera') {
-        this._renderer.autoClear = !true;
+        this._renderer.autoClear = true;
         this._renderer.setViewport(0, 0, this._parameters.width, this._parameters.height);
         this._lastRenderMode = 'camera';
       }
@@ -415,8 +415,10 @@ class React3DInstance {
   };
 
   _renderScene(camera, orthoCamera) {
+    this._renderer.autoClearColor = true
     this._renderer.render(this._scene, camera)
-    this._renderer.render(orthoscene, orthoCamera)
+    this._renderer.autoClearColor = false
+    this._renderer.render(this._orthoScene, orthoCamera)
 
     if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_REACT_ADDON_HOOKS === 'true') {
       if (this._highlightObjectId !== null) {
