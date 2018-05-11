@@ -410,8 +410,8 @@ class React3DInstance {
   };
 
   _renderScene(camera, orthoCamera) {
-    this._renderer.render(this._scene, camera);
-    renderer.render( orthoscene, orthocamera ); // bacti
+    this._renderer.render(this._scene, camera)
+    this._renderer.render(orthoscene, orthoCamera)
 
     if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_REACT_ADDON_HOOKS === 'true') {
       if (this._highlightObjectId !== null) {
