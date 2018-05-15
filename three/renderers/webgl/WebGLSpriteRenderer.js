@@ -209,7 +209,14 @@ function WebGLSpriteRenderer( renderer, gl, state, textures, capabilities ) {
 
 			}
 
-			// console.log('bacti')
+			if ( sprite.info !== undefined ) {
+
+				let image = sprite.material.map.image
+				gl.uniform2f( uniforms.uvOffset, Math.abs(sprite.info.x) / image.width, 1 - Math.abs(sprite.info.y + sprite.info.h) / image.height );
+				gl.uniform2f( uniforms.uvScale, sprite.info.w / image.width, sprite.info.h / image.height );
+
+			}
+			else
 			if ( material.map !== null ) {
 
 				gl.uniform2f( uniforms.uvOffset, material.map.offset.x, material.map.offset.y );
