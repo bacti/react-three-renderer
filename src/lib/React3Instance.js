@@ -6,6 +6,8 @@ import ReactUpdates from 'react-dom/lib/ReactUpdates';
 
 import raf from 'raf';
 
+import WebGLRenderer from '../../three/renderers/WebGLRenderer'
+
 import Viewport from './Viewport';
 import React3Module from './Module';
 import React3Renderer from './React3Renderer';
