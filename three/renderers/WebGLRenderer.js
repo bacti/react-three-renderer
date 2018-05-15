@@ -35,7 +35,7 @@ import { WebGLProperties } from 'three/src/renderers/webgl/WebGLProperties.js';
 import { WebGLRenderLists } from 'three/src/renderers/webgl/WebGLRenderLists.js';
 import { WebGLRenderStates } from 'three/src/renderers/webgl/WebGLRenderStates.js';
 import { WebGLShadowMap } from 'three/src/renderers/webgl/WebGLShadowMap.js';
-import { WebGLSpriteRenderer } from 'three/src/renderers/webgl/WebGLSpriteRenderer.js';
+import { WebGLSpriteRenderer } from './webgl/WebGLSpriteRenderer.js';
 import { WebGLState } from 'three/src/renderers/webgl/WebGLState.js';
 import { WebGLTextures } from 'three/src/renderers/webgl/WebGLTextures.js';
 import { WebGLUniforms } from 'three/src/renderers/webgl/WebGLUniforms.js';

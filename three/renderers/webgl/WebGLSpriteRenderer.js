@@ -209,6 +209,7 @@ function WebGLSpriteRenderer( renderer, gl, state, textures, capabilities ) {
 
 			}
 
+			// console.log('bacti')
 			if ( material.map !== null ) {
 
 				gl.uniform2f( uniforms.uvOffset, material.map.offset.x, material.map.offset.y );
