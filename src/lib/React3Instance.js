@@ -6,7 +6,7 @@ import ReactUpdates from 'react-dom/lib/ReactUpdates';
 
 import raf from 'raf';
 
-import WebGLRenderer from '../../three/renderers/WebGLRenderer'
+import { WebGLRenderer } from '../../three/renderers/WebGLRenderer'
 
 import Viewport from './Viewport';
 import React3Module from './Module';
@@ -140,7 +140,7 @@ class React3DInstance {
     if (this._parameters.customRenderer) {
       this._renderer = this._parameters.customRenderer(rendererArgs);
     } else {
-      this._renderer = isWebglSupported() ? new THREE.WebGLRenderer(rendererArgs)
+      this._renderer = isWebglSupported() ? new WebGLRenderer(rendererArgs)
         : new THREE.CanvasRenderer(rendererArgs);
     }
 
