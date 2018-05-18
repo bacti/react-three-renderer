@@ -350,7 +350,7 @@ function WebGLRenderer( parameters ) {
 
 	};
 
-	this.setSize = function ( width, height, updateStyle ) {
+	this.setSize = function ( width, height, updateStyle = false ) {
 
 		var device = vr.getDevice();
 
