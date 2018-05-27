@@ -420,7 +420,7 @@ class React3DInstance {
     this._renderer.autoClearColor = true
     this._renderer.render(this._scene, camera)
     this._renderer.autoClearColor = false
-    this._orthoScene.visible && this._renderer.render(this._orthoScene, orthoCamera)
+    this._orthoScene && this._orthoScene.visible && this._renderer.render(this._orthoScene, orthoCamera)
 
     if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_REACT_ADDON_HOOKS === 'true') {
       if (this._highlightObjectId !== null) {
